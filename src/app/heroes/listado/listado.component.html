@@ -1,0 +1,26 @@
+<span>Series Recomendadas!</span>
+
+<div *ngIf="series.length; else elseBlock">
+    <h3 *ngIf="borrado.length" > Serie borrada: <small> {{borrado }}</small> </h3>
+</div>
+<hr>
+<table>
+    <thead>
+        <th> borrar</th>
+        <th>Serie</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let serie of series; let i = index">
+            <td>
+                <button (click)="borrar(i)">B</button>
+            </td>
+            <td>
+                {{i+1}} - {{serie}}
+            </td> 
+        </tr>
+    </tbody>
+</table>
+<ng-template #elseBlock><p>No hay nada que borrar</p> </ng-template>
+
+
+
